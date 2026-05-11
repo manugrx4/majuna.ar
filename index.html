@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="majuna.ar – Tejidos artesanales a crochet. Gorros, bolsos, llaveros, virgencitas y mucho más. Pedidos personalizados disponibles.">
+    <title>majuna.ar – Tejidos a Crochet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --cream:            #FAF7F2;
+            --cream-dark:       #F0EAE0;
+            --terracotta:       #B8714E;
+            --terracotta-light: #D4957A;
+            --terracotta-hover: #9E5E3D;
+            --sage:             #7A9068;
+            --sage-light:       #9DB08D;
+            --brown:            #3A2A1E;
+            --brown-medium:     #6B4C3B;
+            --sand:             #E8D5C4;
+            --sand-light:       #F5EDE4;
+            --shadow:           0 4px 24px rgba(58,42,30,.09);
+            --shadow-hover:     0 10px 36px rgba(58,42,30,.17);
+            --radius:           18px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--brown);
+            line-height: 1.6;
+        }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(250,247,242,.93);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--sand);
+            padding: 0 28px;
+        }
+        .header-inner {
+            max-width: 1120px; margin: 0 auto;
+            display: flex; align-items: center;
+            justify-content: space-between; height: 70px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem; font-weight: 700;
+            color: var(--brown); letter-spacing: .07em;
+            text-decoration: none;
+        }
+        .logo span { color: var(--terracotta); }
+
+        nav { display: flex; gap: 34px; align-items: center; }
+        nav a {
+            font-size: .88rem; font-weight: 500;
+            color: var(--brown-medium); text-decoration: none;
+            letter-spacing: .02em; transition: color .2s;
+        }
+        nav a:hover { color: var(--terracotta); }
+
+        .nav-cta {
+            background: var(--terracotta) !important;
+            color: #fff !important;
+            padding: 10px 22px; border-radius: 50px;
+            transition: background .2s !important, transform .15s !important;
+        }
+        .nav-cta:hover {
+            background: var(--terracotta-hover) !important;
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 4px;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--brown); border-radius: 2px; transition: all .3s;
+        }
+
+        /* ─── HERO ───────────────────────────────────── */
+        .hero {
+            position: relative; overflow: hidden;
+            background: var(--cream-dark);
+            padding: 90px 28px 110px;
+            text-align: center;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 18% 55%, rgba(184,113,78,.14) 0%, transparent 48%),
+                radial-gradient(circle at 82% 18%, rgba(122,144,104,.13) 0%, transparent 48%),
+                radial-gradient(circle at 58% 82%, rgba(184,113,78,.09) 0%, transparent 38%);
+        }
+        .hero::after {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(var(--sand) 1.5px, transparent 1.5px);
+            background-size: 28px 28px; opacity: .45;
+        }
+        .hero-content {
+            position: relative; z-index: 1;
+            max-width: 680px; margin: 0 auto;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: .78rem; font-weight: 500;
+            letter-spacing: .18em; text-transform: uppercase;
+            color: var(--terracotta);
+            background: rgba(184,113,78,.1);
+            padding: 7px 18px; border-radius: 50px; margin-bottom: 26px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700; line-height: 1.05;
+            color: var(--brown); margin-bottom: 22px;
+            letter-spacing: .04em;
+        }
+        .hero h1 em { font-style: italic; color: var(--terracotta); }
+
+        .hero p {
+            font-size: 1.08rem; color: var(--brown-medium);
+            max-width: 470px; margin: 0 auto 38px;
+            font-weight: 300; line-height: 1.75;
+        }
+        .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--terracotta); color: #fff;
+            padding: 14px 28px; border-radius: 50px;
+            font-size: .93rem; font-weight: 500; text-decoration: none;
+            transition: background .2s, transform .15s;
+        }
+        .btn-primary:hover { background: var(--terracotta-hover); transform: translateY(-2px); }
+
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: var(--brown);
+            border: 1.5px solid var(--brown-medium);
+            padding: 14px 28px; border-radius: 50px;
+            font-size: .93rem; font-weight: 500; text-decoration: none;
+            transition: all .2s;
+        }
+        .btn-outline:hover { background: var(--brown); color: #fff; border-color: var(--brown); }
+
+        /* ─── FEATURES STRIP ─────────────────────────── */
+        .strip { background: var(--brown); padding: 18px 28px; }
+        .strip-inner {
+            max-width: 1120px; margin: 0 auto;
+            display: flex; justify-content: center;
+            gap: 40px; flex-wrap: wrap;
+        }
+        .strip-item {
+            display: flex; align-items: center; gap: 9px;
+            color: var(--sand); font-size: .83rem; font-weight: 400;
+        }
+        .strip-item .dot { color: var(--terracotta-light); font-size: 1rem; }
+
+        /* ─── SECTION COMMONS ────────────────────────── */
+        section { padding: 88px 28px; }
+
+        .sec-header { text-align: center; max-width: 560px; margin: 0 auto 52px; }
+        .sec-eye {
+            display: inline-block;
+            font-size: .73rem; font-weight: 500;
+            letter-spacing: .16em; text-transform: uppercase;
+            color: var(--terracotta); margin-bottom: 12px;
+        }
+        .sec-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+            font-weight: 600; color: var(--brown);
+            line-height: 1.2; margin-bottom: 14px;
+        }
+        .sec-desc { color: var(--brown-medium); font-size: .98rem; font-weight: 300; line-height: 1.75; }
+
+        /* ─── CATALOG ────────────────────────────────── */
+        .catalog { background: var(--cream); }
+        .catalog-inner { max-width: 1120px; margin: 0 auto; }
+
+        .filter-row {
+            display: flex; gap: 8px;
+            justify-content: center; flex-wrap: wrap;
+            margin-bottom: 44px;
+        }
+        .ftab {
+            padding: 9px 22px; border-radius: 50px;
+            border: 1.5px solid var(--sand);
+            background: #fff; color: var(--brown-medium);
+            font-size: .83rem; font-weight: 500;
+            cursor: pointer; transition: all .2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .ftab:hover { border-color: var(--terracotta); color: var(--terracotta); }
+        .ftab.active { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #fff; border-radius: var(--radius);
+            overflow: hidden; box-shadow: var(--shadow);
+            transition: transform .25s, box-shadow .25s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .card.hidden { display: none; }
+
+        /* Photo placeholder */
+        .card-thumb {
+            width: 100%; aspect-ratio: 1;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 10px; font-size: 3rem;
+            background: linear-gradient(135deg, var(--sand-light), var(--cream-dark));
+            position: relative; overflow: hidden;
+        }
+        .card-thumb::after {
+            content: '📷 Foto próximamente';
+            position: absolute; bottom: 14px;
+            font-size: .68rem; font-weight: 500;
+            letter-spacing: .07em; color: var(--brown-medium);
+            background: rgba(255,255,255,.65);
+            padding: 4px 12px; border-radius: 50px;
+        }
+        /* When a real <img> is used */
+        .card-thumb img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; position: relative; z-index: 2;
+            cursor: pointer; transition: opacity .2s;
+        }
+        .card-thumb img:hover { opacity: .9; }
+        /* Hide the ::after pseudo-element when there's an image */
+        .card-thumb:has(img)::after {
+            display: none;
+        }
+
+        .card-body { padding: 18px 20px 22px; }
+        .card-cat {
+            font-size: .68rem; font-weight: 500;
+            letter-spacing: .12em; text-transform: uppercase;
+            color: var(--sage); margin-bottom: 6px;
+        }
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem; font-weight: 600;
+            color: var(--brown); margin-bottom: 8px;
+        }
+        .card-price {
+            font-size: 1.12rem; font-weight: 500;
+            color: var(--terracotta); margin-bottom: 16px;
+        }
+        .card-price sup { font-size: .72rem; color: var(--brown-medium); font-weight: 400; }
+
+        .card-btn {
+            display: flex; align-items: center;
+            justify-content: center; gap: 7px;
+            width: 100%; background: var(--terracotta); color: #fff;
+            border: none; border-radius: 50px;
+            padding: 11px 16px; font-size: .83rem; font-weight: 500;
+            cursor: pointer; text-decoration: none;
+            transition: background .2s; font-family: 'DM Sans', sans-serif;
+        }
+        .card-btn:hover { background: var(--terracotta-hover); }
+        .card-btn svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+
+        /* ─── CUSTOM ORDERS ──────────────────────────── */
+        .custom { background: var(--brown); text-align: center; }
+        .custom-inner { max-width: 640px; margin: 0 auto; }
+        .custom .sec-eye  { color: var(--terracotta-light); }
+        .custom .sec-title { color: var(--cream); }
+        .custom .sec-desc  { color: var(--sand); margin-bottom: 0; }
+
+        .tag-row {
+            display: flex; gap: 10px; flex-wrap: wrap;
+            justify-content: center; margin-top: 28px; margin-bottom: 36px;
+        }
+        .ctag {
+            background: rgba(250,247,242,.1);
+            color: var(--sand);
+            border: 1px solid rgba(250,247,242,.2);
+            padding: 7px 18px; border-radius: 50px;
+            font-size: .8rem;
+        }
+
+        /* ─── ABOUT ──────────────────────────────────── */
+        .about { background: var(--cream-dark); }
+        .about-inner {
+            max-width: 1120px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 72px; align-items: center;
+        }
+        .about-mosaic {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .mosaic-box {
+            border-radius: 14px; overflow: hidden;
+            background: var(--sand);
+            display: flex; align-items: center;
+            justify-content: center; font-size: 2.6rem;
+            aspect-ratio: 3/4;
+        }
+        .mosaic-box:first-child { grid-column: 1 / -1; aspect-ratio: 16/8; }
+        .mosaic-box img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
+        }
+
+        .about-text .sec-header { text-align: left; margin-bottom: 20px; }
+        .about-text p {
+            color: var(--brown-medium); font-size: .97rem;
+            line-height: 1.82; font-weight: 300; margin-bottom: 18px;
+        }
+        .stats {
+            display: flex; gap: 36px; margin-top: 36px;
+            padding-top: 28px; border-top: 1px solid var(--sand);
+        }
+        .stat-num {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; font-weight: 700; color: var(--terracotta);
+        }
+        .stat-lbl { font-size: .78rem; color: var(--brown-medium); letter-spacing: .04em; }
+
+        /* ─── FOOTER ─────────────────────────────────── */
+        footer { background: var(--brown); padding: 52px 28px 32px; text-align: center; }
+        .foot-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem; font-weight: 700;
+            color: var(--cream); letter-spacing: .07em; margin-bottom: 10px;
+        }
+        .foot-logo span { color: var(--terracotta-light); }
+        .foot-tag { color: var(--sand); font-size: .88rem; font-weight: 300; margin-bottom: 30px; }
+        .foot-links {
+            display: flex; gap: 26px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 34px;
+        }
+        .foot-links a {
+            color: var(--sand); font-size: .83rem; text-decoration: none; transition: color .2s;
+        }
+        .foot-links a:hover { color: var(--terracotta-light); }
+        .foot-copy {
+            color: rgba(232,213,196,.4); font-size: .76rem;
+            border-top: 1px solid rgba(232,213,196,.12);
+            padding-top: 22px;
+        }
+
+        /* ─── FLOATING WA ────────────────────────────── */
+        .floating-wa {
+            position: fixed; bottom: 28px; right: 28px; z-index: 999;
+            background: #25D366; border-radius: 50%;
+            width: 58px; height: 58px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 22px rgba(37,211,102,.42);
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .floating-wa:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,.54); }
+        .floating-wa svg { width: 28px; height: 28px; fill: #fff; }
+
+        /* ─── MODAL GALERÍA ──────────────────────────── */
+        .modal-galeria {
+            display: none; position: fixed; z-index: 9999;
+            inset: 0; background: rgba(0,0,0,.8);
+            backdrop-filter: blur(4px);
+        }
+        .modal-galeria.open { display: flex; align-items: center; justify-content: center; }
+
+        .modal-contenido {
+            background: var(--cream); border-radius: var(--radius);
+            max-width: 700px; width: 90%;
+            max-height: 90vh; overflow-y: auto;
+            position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+        }
+
+        .modal-cerrar {
+            position: absolute; top: 16px; right: 16px; z-index: 10;
+            background: var(--terracotta); color: #fff;
+            border: none; border-radius: 50%; width: 40px; height: 40px;
+            font-size: 28px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: background .2s;
+        }
+        .modal-cerrar:hover { background: var(--terracotta-hover); }
+
+        .modal-galeria-container {
+            position: relative; width: 100%;
+            aspect-ratio: 1; display: flex;
+            align-items: center; justify-content: center;
+            background: var(--sand-light);
+        }
+
+        #modal-imagen {
+            width: 100%; height: 100%; object-fit: contain;
+            padding: 20px; border-radius: var(--radius);
+        }
+
+        .modal-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: var(--terracotta); color: #fff;
+            border: none; border-radius: 50%; width: 48px; height: 48px;
+            font-size: 24px; cursor: pointer; z-index: 10;
+            transition: background .2s;
+        }
+        .modal-nav:hover { background: var(--terracotta-hover); }
+        .modal-prev { left: 12px; }
+        .modal-next { right: 12px; }
+
+        .modal-info {
+            padding: 28px;
+        }
+
+        .modal-titulo {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 20px;
+            gap: 16px;
+        }
+
+        #modal-nombre {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; font-weight: 600;
+            color: var(--brown); margin: 0;
+        }
+
+        .modal-contador {
+            background: var(--sand); color: var(--brown);
+            padding: 6px 14px; border-radius: 50px;
+            font-size: .85rem; font-weight: 500;
+            white-space: nowrap;
+        }
+
+        #modal-wa-btn {
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px; width: 100%;
+        }
+
+        /* ─── RESPONSIVE ─────────────────────────────── */
+        @media (max-width: 820px) {
+            nav { display: none; position: absolute; top: 70px; left: 0; right: 0;
+                background: var(--cream); border-bottom: 1px solid var(--sand);
+                flex-direction: column; padding: 22px 28px; gap: 22px; }
+            nav.open { display: flex; }
+            .hamburger { display: flex; }
+            .about-inner { grid-template-columns: 1fr; gap: 44px; }
+            .about-mosaic { order: -1; }
+            .stats { gap: 24px; }
+            .strip-inner { gap: 18px; }
+            .floating-wa { bottom: 20px; right: 20px; width: 52px; height: 52px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 70px 20px 88px; }
+            section { padding: 64px 20px; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">majuna.<span>ar</span></a>
+        <nav id="main-nav">
+            <a href="#catalogo">Catálogo</a>
+            <a href="#sobre-majuna">Sobre Majuna</a>
+            <a href="#pedidos">Pedidos</a>
+            <a href="https://wa.me/5492266460493?text=¡Hola!%20Vi%20su%20página%20y%20me%20gustaría%20consultar%20sobre%20sus%20tejidos%20🧶" target="_blank" class="nav-cta">Escribir por WhatsApp</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-eyebrow">🧶 Tejidos artesanales a crochet</div>
+        <h1>Hecho con<br><em>amor</em> e hilo</h1>
+        <p>Cada pieza de majuna.ar es única, tejida a mano con dedicación. Accesorios, piezas para el hogar y hermosas figuras religiosas hechas con el corazón.</p>
+        <div class="hero-btns">
+            <a href="#catalogo" class="btn-primary">Ver catálogo</a>
+            <a href="https://wa.me/5492266460493?text=¡Hola!%20Vi%20su%20página%20y%20me%20gustaría%20consultar%20sobre%20sus%20tejidos%20🧶" target="_blank" class="btn-outline">Consultar por WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ STRIP ═══════════════ -->
+<div class="strip">
+    <div class="strip-inner">
+        <div class="strip-item"><span class="dot">✦</span> 100% hecho a mano</div>
+        <div class="strip-item"><span class="dot">✦</span> Pedidos personalizados</div>
+        <div class="strip-item"><span class="dot">✦</span> Colores a elección</div>
+        <div class="strip-item"><span class="dot">✦</span> Atención directa por WhatsApp</div>
+    </div>
+</div>
+
+<!-- ═══════════════ CATALOG ═══════════════ -->
+<section class="catalog" id="catalogo">
+    <div class="catalog-inner">
+        <div class="sec-header">
+            <span class="sec-eye">Productos</span>
+            <h2 class="sec-title">Catálogo majuna.ar</h2>
+            <p class="sec-desc">Explorá todos nuestros tejidos. Cada pieza está disponible en distintos colores — consultá por el tuyo.</p>
+        </div>
+
+        <div class="filter-row">
+            <button class="ftab active" data-filter="all">Todos</button>
+            <button class="ftab" data-filter="moda">Moda &amp; Accesorios</button>
+            <button class="ftab" data-filter="hogar">Hogar</button>
+            <button class="ftab" data-filter="bebes">Bebés</button>
+            <button class="ftab" data-filter="accesorios">Accesorios</button>
+            <button class="ftab" data-filter="deco">Decoración &amp; Fe</button>
+        </div>
+
+        <div class="product-grid" id="grid">
+
+            <!-- CUELLO -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Cuellos-1.jpeg" alt="Cuello"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Cuellos</div>
+                    <div class="card-price">$18.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Cuello%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- GORRO CAÍDO -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Gorro-caido.jpeg" alt="Gorro caído"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Gorro caído</div>
+                    <div class="card-price">$18.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Gorro%20caído%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- GORRITO CALADO -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Gorritos-Calados.jpeg" alt="Gorrito calado"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Gorrito calado</div>
+                    <div class="card-price">$16.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Gorrito%20calado%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- BANDANA -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Bandanas.jpeg" alt="Bandana"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Bandanas</div>
+                    <div class="card-price">$8.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20la%20Bandana%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- BOLSO -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Bolso-1.jpeg" alt="Bolso"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Bolsos</div>
+                    <div class="card-price">$40.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Bolso%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- LLAVERO -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Llaveros-varios.jpeg" alt="Llavero"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Llaveros</div>
+                    <div class="card-price">$6.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Llaveros%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARTERITA COMUNIÓN -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Carterita-comunion.jpeg" alt="Carterita comunión"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Carterita comunión</div>
+                    <div class="card-price">$17.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20la%20Carterita%20de%20comunión%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- APOYA TAZAS -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/Apoya-tazas.jpeg" alt="Apoya tazas"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Apoya tazas</div>
+                    <div class="card-price">$5.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Apoya%20tazas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- APOYA PLATOS -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/apoya-platos.jpeg" alt="Apoya platos"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Apoya platos</div>
+                    <div class="card-price">$14.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Apoya%20platos%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- VIRGENCITA -->
+            <div class="card" data-category="deco">
+                <div class="card-thumb"><img src="imagenes/Virgencitas.jpeg" alt="Virgencita"></div>
+                <div class="card-body">
+                    <div class="card-cat">Decoración &amp; Fe</div>
+                    <div class="card-name">Virgencitas</div>
+                    <div class="card-price">$20.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20las%20Virgencitas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- PESEBRE -->
+            <div class="card" data-category="deco">
+                <div class="card-thumb"><img src="imagenes/Pesebre.jpeg" alt="Pesebre"></div>
+                <div class="card-body">
+                    <div class="card-cat">Decoración &amp; Fe</div>
+                    <div class="card-name">Pesebre</div>
+                    <div class="card-price">$30.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Pesebre%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- ═══ NUEVOS PRODUCTOS ═══ -->
+
+            <!-- POLAINAS -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Polainas.jpeg" alt="Polainas"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Polainas</div>
+                    <div class="card-price">$20.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20las%20Polainas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- VINCHAS -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Vinchas.jpeg" alt="Vinchas"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Vinchas</div>
+                    <div class="card-price">$8.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20las%20Vinchas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- ESCARAPELAS -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Escarapela.jpeg" alt="Escarapelas"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Escarapelas</div>
+                    <div class="card-price">$6.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20las%20Escarapelas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- LLAVEROS OJO TURCO -->
+            <div class="card" data-category="moda">
+                <div class="card-thumb"><img src="imagenes/Llavero-ojo-turco.jpeg" alt="Llavero ojo turco"></div>
+                <div class="card-body">
+                    <div class="card-cat">Moda &amp; Accesorios</div>
+                    <div class="card-name">Llavero ojo turco</div>
+                    <div class="card-price">$6.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Llaveros%20ojo%20turco%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- AGARRADERAS -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/Agarradera.jpeg" alt="Agarraderas"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Agarraderas</div>
+                    <div class="card-price">$5.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20las%20Agarraderas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- ORGANIZADOR -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/Organizador.jpeg" alt="Organizador"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Organizador</div>
+                    <div class="card-price">$15.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Organizador%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- CESTOS GUARDA COSAS -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/Cestos.jpeg" alt="Cestos guarda cosas"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Cestos guarda cosas</div>
+                    <div class="card-price">$7.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Cestos%20guarda%20cosas%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- ACCESORIOS PARA EL SILLÓN -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/Accesorios-sillon.jpeg" alt="Accesorios para el sillón"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Accesorios para el sillón</div>
+                    <div class="card-price">$15.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Accesorios%20para%20el%20sillón%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- CAMINO -->
+            <div class="card" data-category="hogar">
+                <div class="card-thumb"><img src="imagenes/Camino.jpeg" alt="Camino"></div>
+                <div class="card-body">
+                    <div class="card-cat">Hogar</div>
+                    <div class="card-name">Camino</div>
+                    <div class="card-price">Consultar <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Camino%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- MUÑECOS DE APEGO PARA BEBÉ -->
+            <div class="card" data-category="bebes">
+                <div class="card-thumb"><img src="imagenes/Muñeco-apego.jpeg" alt="Muñeco de apego para bebé"></div>
+                <div class="card-body">
+                    <div class="card-cat">Bebés</div>
+                    <div class="card-name">Muñecos de apego para bebé</div>
+                    <div class="card-price">$30.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20los%20Muñecos%20de%20apego%20para%20bebé%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+            <!-- ACCESORIO PARA CARGAR EL CELULAR -->
+            <div class="card" data-category="accesorios">
+                <div class="card-thumb"><img src="imagenes/Carga-celular.jpeg" alt="Accesorio para cargar el celular"></div>
+                <div class="card-body">
+                    <div class="card-cat">Accesorios</div>
+                    <div class="card-name">Carga celular</div>
+                    <div class="card-price">$12.000 <sup>ARS</sup></div>
+                    <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20consultar%20por%20el%20Accesorio%20para%20cargar%20el%20celular%20🧶" target="_blank" class="card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Consultar
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- /product-grid -->
+    </div>
+</section>
+
+<!-- ═══════════════ CUSTOM ORDERS ═══════════════ -->
+<section class="custom" id="pedidos">
+    <div class="custom-inner">
+        <span class="sec-eye">✦ Personalización</span>
+        <h2 class="sec-title">¿Tenés algo en mente?</h2>
+        <p class="sec-desc">Aceptamos pedidos personalizados. Elegí el color, tamaño y estilo — lo hacemos a tu medida con el mismo amor artesanal de siempre.</p>
+        <div class="tag-row">
+            <span class="ctag">Colores a elección</span>
+            <span class="ctag">Tallas personalizadas</span>
+            <span class="ctag">Regalos especiales</span>
+            <span class="ctag">Pedidos al por mayor</span>
+            <span class="ctag">Temporada navideña</span>
+        </div>
+        <a href="https://wa.me/5492266460493?text=¡Hola!%20Me%20gustaría%20hacer%20un%20pedido%20personalizado%20🧶" target="_blank" class="btn-primary">
+            <svg style="width:17px;height:17px;fill:#fff;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Pedir por WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="about" id="sobre-majuna">
+    <div class="about-inner">
+        <div class="about-mosaic">
+            <div class="mosaic-box"><img src="imagenes/Cuellos-2.jpeg" alt="Tejidos artesanales"></div>
+            <div class="mosaic-box"><img src="imagenes/Pesebres-muchos.jpeg" alt="Pesebres variados"></div>
+            <div class="mosaic-box"><img src="imagenes/Virgencita-1.jpeg" alt="Virgencita tejida"></div>
+        </div>
+        <div class="about-text">
+            <div class="sec-header">
+                <span class="sec-eye">Sobre Majuna</span>
+                <h2 class="sec-title">Tejido con amor,<br>puntada a puntada</h2>
+            </div>
+            <p>majuna.ar nació de la pasión por el crochet artesanal. Cada pieza es única, tejida a mano con dedicación y cuidando cada detalle para que llegue con la mejor calidad.</p>
+            <p>Desde gorros y bolsos hasta hermosas virgencitas y pesebres navideños — cada creación tiene su propia historia y está hecha con los materiales más cuidados y el corazón puesto en cada nudo.</p>
+            <div class="stats">
+                <div>
+                    <span class="stat-num">100%</span>
+                    <span class="stat-lbl">Artesanal</span>
+                </div>
+                <div>
+                    <span class="stat-num">∞</span>
+                    <span class="stat-lbl">Colores disponibles</span>
+                </div>
+                <div>
+                    <span class="stat-num">♥</span>
+                    <span class="stat-lbl">Hecho con amor</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <div class="foot-logo">majuna.<span>ar</span></div>
+    <p class="foot-tag">Tejidos artesanales a crochet ✦ Hechos con amor</p>
+    <div class="foot-links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#pedidos">Pedidos personalizados</a>
+        <a href="#sobre-majuna">Sobre Majuna</a>
+        <a href="https://wa.me/5492266460493" target="_blank">WhatsApp</a>
+    </div>
+    <div class="foot-copy">© 2025 majuna.ar · Todos los derechos reservados</div>
+</footer>
+
+<!-- ═══════════════ MODAL GALERÍA ═══════════════ -->
+<div id="modal-galeria" class="modal-galeria">
+    <div class="modal-contenido">
+        <button class="modal-cerrar">&times;</button>
+        <div class="modal-galeria-container">
+            <button class="modal-nav modal-prev">&#10094;</button>
+            <img id="modal-imagen" src="" alt="Producto">
+            <button class="modal-nav modal-next">&#10095;</button>
+        </div>
+        <div class="modal-info">
+            <div class="modal-titulo">
+                <h2 id="modal-nombre"></h2>
+                <span id="modal-contador" class="modal-contador"></span>
+            </div>
+            <a id="modal-wa-btn" href="" target="_blank" class="btn-primary">
+                <svg style="width:17px;height:17px;fill:#fff;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Consultar por WhatsApp
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ FLOATING WA ═══════════════ -->
+<a href="https://wa.me/5492266460493?text=¡Hola!%20Vi%20su%20página%20y%20me%20gustaría%20consultar%20sobre%20sus%20tejidos%20🧶"
+   target="_blank" class="floating-wa" title="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+    // ── Mobile menu ──────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+    // ── Product filter ───────────────────────────
+    document.querySelectorAll('.ftab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const f = tab.dataset.filter;
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
+            });
+        });
+    });
+
+    // ── Subtle scroll-in animation ───────────────
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity .4s ease, transform .4s ease, box-shadow .25s';
+        observer.observe(card);
+    });
+
+    // ── Modal Gallery ────────────────────────────
+    const productImages = {
+        'Cuellos': ['imagenes/Cuellos-1.jpeg', 'imagenes/Cuellos-2.jpeg'],
+        'Gorro caído': ['imagenes/Gorro-caido.jpeg'],
+        'Gorrito calado': ['imagenes/Gorritos-Calados.jpeg'],
+        'Bandanas': ['imagenes/Bandanas.jpeg'],
+        'Bolsos': ['imagenes/Bolso-1.jpeg', 'imagenes/bolso-2.jpeg', 'imagenes/Bolso-modelo.jpeg', 'imagenes/Bolso-3a.jpeg'],
+        'Llaveros': ['imagenes/Llaveros-varios.jpeg', 'imagenes/Llaveros-ballenas.jpeg', 'imagenes/Llaveros-frida-kahlo.jpeg', 'imagenes/Llaveros-frutillas.jpeg', 'imagenes/Llaveros-galletitas.jpeg', 'imagenes/Llaveros-pelota-voley.jpeg', 'imagenes/Llaveros-ranitas.jpeg', 'imagenes/Llaveros-soles.jpeg'],
+        'Carterita comunión': ['imagenes/Carterita-comunion.jpeg'],
+        'Apoya tazas': ['imagenes/Apoya-tazas.jpeg', 'imagenes/Apoya-Tazas-muchos.jpeg'],
+        'Apoya platos': ['imagenes/apoya-platos.jpeg'],
+        'Virgencitas': ['imagenes/Virgencitas.jpeg', 'imagenes/Virgencita-1.jpeg'],
+        'Pesebre': ['imagenes/Pesebre.jpeg', 'imagenes/Pesebres-muchos.jpeg'],
+        'Polainas': ['imagenes/Polainas.jpeg', 'imagenes/Polainas-2.jpeg'],
+        'Vinchas': ['imagenes/Vinchas.jpeg', 'imagenes/Vinchas-2.jpeg', 'imagenes/Vinchas-3.jpeg'],
+        'Escarapelas': ['imagenes/Escarapela.jpeg', 'imagenes/Escarapela-3.jpeg', 'imagenes/Escarapela-4.jpeg'],
+        'Llavero ojo turco': ['imagenes/Llavero-ojo-turco.jpeg', 'imagenes/Llavero-ojo-turco-2.jpeg'],
+        'Agarraderas': ['imagenes/Agarradera.jpeg', 'imagenes/Agarradera-2.jpeg', 'imagenes/Agarradera-3.jpeg'],
+        'Organizador': ['imagenes/Organizador.jpeg'],
+        'Cestos guarda cosas': ['imagenes/Cestos.jpeg', 'imagenes/Cestos-2.jpeg', 'imagenes/Cestos-3.jpeg'],
+        'Accesorios para el sillón': ['imagenes/Accesorios-sillon.jpeg', 'imagenes/Accesorios-sillon-2.jpeg'],
+        'Camino': ['imagenes/Camino.jpeg', 'imagenes/Camino-2.jpeg', 'imagenes/Camino-3.jpeg'],
+        'Muñecos de apego para bebé': ['imagenes/Muñeco-apego.jpeg', 'imagenes/Muñeco-apego-2.jpeg', 'imagenes/Muñeco-apego-3.jpeg', 'imagenes/Muñeco-apego-4.jpeg', 'imagenes/Muñeco-apego-5.jpeg', 'imagenes/Muñeco-apego-6.jpeg'],
+        'Carga celular': ['imagenes/Carga-celular.jpeg']
+    };
+
+    let currentImageIndex = 0;
+    let currentProduct = '';
+    let currentImages = [];
+
+    const modal = document.getElementById('modal-galeria');
+    const modalImg = document.getElementById('modal-imagen');
+    const modalNombre = document.getElementById('modal-nombre');
+    const modalContador = document.getElementById('modal-contador');
+    const modalWaBtn = document.getElementById('modal-wa-btn');
+    const modalCerrar = document.querySelector('.modal-cerrar');
+    const modalPrev = document.querySelector('.modal-prev');
+    const modalNext = document.querySelector('.modal-next');
+
+    function abrirModal(productName) {
+        currentProduct = productName;
+        currentImages = productImages[productName] || [productImages['Cuello'][0]];
+        currentImageIndex = 0;
+        mostrarImagen();
+        modal.classList.add('open');
+    }
+
+    function cerrarModal() {
+        modal.classList.remove('open');
+    }
+
+    function mostrarImagen() {
+        const img = currentImages[currentImageIndex];
+        modalImg.src = img;
+        modalNombre.textContent = currentProduct;
+        modalContador.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+
+        const waText = encodeURIComponent(`¡Hola! Me gustaría consultar por ${currentProduct} 🧶`);
+        modalWaBtn.href = `https://wa.me/5492266460493?text=${waText}`;
+    }
+
+    function siguiente() {
+        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+        mostrarImagen();
+    }
+
+    function anterior() {
+        currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+        mostrarImagen();
+    }
+
+    // Event listeners
+    document.querySelectorAll('.card-thumb img').forEach(img => {
+        img.addEventListener('click', () => {
+            const card = img.closest('.card');
+            const productName = card.querySelector('.card-name').textContent;
+            abrirModal(productName);
+        });
+    });
+
+    modalCerrar.addEventListener('click', cerrarModal);
+    modalPrev.addEventListener('click', anterior);
+    modalNext.addEventListener('click', siguiente);
+
+    // Cerrar al hacer clic afuera
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) cerrarModal();
+    });
+
+    // Navegación con teclado
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft') anterior();
+        if (e.key === 'ArrowRight') siguiente();
+        if (e.key === 'Escape') cerrarModal();
+    });
+</script>
+</body>
+</html>
